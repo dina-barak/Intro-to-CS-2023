@@ -1,7 +1,4 @@
 /*
- * This class includes a sampling of functions that every intro to CS student
- * should know how to implement.
- *
  * Be sure to submit your work in a folder called introtocsHW1
  * 
  * Some words about submission:
@@ -25,6 +22,8 @@
 package introtocsHW1;
 
  /** 
+ * This class includes a sampling of functions that every intro to CS student
+ * should know how to implement.
  * @author Efraim Dov Neimand
  */
 public class HW1 {
