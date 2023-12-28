@@ -100,12 +100,13 @@ public class HW1 {
         /*
         
         We have declared integer n for you.  You don't know what the value we
-        pubt in n is.  We want you to create a boolean variable called isPrime, 
+        put in n is.  We want you to create a boolean variable called isPrime, 
         and  set its value to true if n is prime, and false otherwise.  
         
         For example, if n = 9 then isPrime should be set to false.  If n = 5
         then isPrime should be true.  A reminder, a number is prime if and only
-        if it is divisible by two distinct numbers, 1 and itself.
+        if it is divisible by two distinct numbers, 1 and itself. Note that
+        a result of the previous sentence is that 1 is composite.
         
         The code that you write should be in place of these instructions.
         To be clear, delete these instructions, and replace them with your own
@@ -124,7 +125,7 @@ public class HW1 {
      * @param ind The index of the desired digit.
      * @return The digit in number num at index ind.
      */
-    public static int getDigit(int num, int ind){
+    public static int digit(int num, int ind){
         
         ///////Insert your code below this line. //////////////
         /*
@@ -135,7 +136,7 @@ public class HW1 {
         between 0 and 9.
         Set digit to be the digit of num at the given index.  If ind = 0, then
         digit should equal one's value of num.  
-        If ind = 10 then digit should equal the ten's value, and so on.
+        If ind = 1 then digit should equal the ten's value, and so on.
         
         For example, if num = 5762, and ind = 2 then digit = 7.
         If ind = 0, then digit = 2.
@@ -147,6 +148,42 @@ public class HW1 {
         */////////All student code should be above this line.////////////////
         
         return digit;
+    }
+    
+    /**
+     * Finds the requested digit of a number in binary notation.
+     * @param num The number the digit is taken from.
+     * @param ind the index of the desired digit.
+     * @return the digit, true for 1, false for 0, and the given index.
+     */
+    public static boolean binaryDigit(int num, int ind){
+        ///////Insert your code below this line. //////////////
+        /*
+        
+        We have declared two variables for you, num and ind.  
+        You don't know what their values are.
+        We want you to create a variable called digit that can hold exactly
+        two values.
+        Set digit to be the digit of num in binary representation at the given 
+        index.  
+        If ind = 0, then digit should equal one's value of num.  
+        If ind = 1 then digit should equal the two's value, and so on.
+        
+        For example, if num = 5, and ind = 2 then digit = true.
+        If ind = 0, then digit = true.
+        
+        You may use any resource you like to help you understand binary numbers
+        in a mathamatical context.  As always, you should not be looking at
+        any one else's code to help you solve this problem.
+        
+        
+        The code that you write should be in place of these instructions.
+        To be clear, delete these instructions, and replace them with your own
+        code following these instructions.
+        
+        */////////All student code should be above this line.////////////////
+        
+        return ind;
     }
     
     /**
@@ -265,7 +302,7 @@ public class HW1 {
         For example, if initialNumberOfCells = 1, and numGenerations = 3 then 
         numCells should be set to 8.  If however numGenerations is 6 then 
         and initialNumberOfCells = 1 then 
-        numCells should be (2*2*2*2*2-1)*2-2 = 60.
+        numCells should be (2*2*2*2*2-1)*2-1 = 61.
         
         The code that you write should be in place of these instructions.
         To be clear, delete these instructions, and replace them with your own
@@ -392,7 +429,11 @@ public class HW1 {
         
         You should find that as gridWidth increases, your value for pi will get
         closer and closer to the actual value of pi.  Whe gridWidth is 10000,
-        your pi shold be acurate to 3.1415.
+        your pi shold be acurate to 3.141 plus or minus 1e-4.
+        
+        For no extra credit, except that you'll learn more:
+        What can you change about the algorithm to make it more 
+        four times faster.  Be sure to back up your claims with sound math.
         
         The code that you write should be in place of these instructions.
         To be clear, delete these instructions, and replace them with your own
@@ -413,8 +454,8 @@ public class HW1 {
                 "\nequal test 2: " + !equals(3, 12, 1e-7));
         System.out.println("isPrime test 1: " + !isPrime(9) + 
                 "\nisPrime test 2: " + isPrime(5));
-        System.out.println("getDigit test 1: " + (getDigit(5762, 2) == 7) + 
-                "\ngetDigit test 2: " + (getDigit(5762, 0) == 2));
+        System.out.println("getDigit test 1: " + (digit(5762, 2) == 7) + 
+                "\ngetDigit test 2: " + (digit(5762, 0) == 2));
         System.out.println("swap test: " + 
                 (swap('c', 'q')[0] == 'q' && swap('c', 'q')[1] == 'c'));
         System.out.println("duckWalk test 1: " + !duckWalk(1, true) + 
@@ -425,6 +466,6 @@ public class HW1 {
                 equals(rocketLocation(Math.PI/2, 20.8, 2, 4)[0], 0, 1e-10) && 
                 equals(rocketLocation(Math.PI/2, 20.8, 2, 4)[1], 0.4, 1e-12))
         );
-        System.out.println("pi test: " + equals(pi(10_000), Math.PI, 1e-5));
+        System.out.println("pi test: " + equals(pi(10_000), Math.PI, 1e-4));
     }
 }
