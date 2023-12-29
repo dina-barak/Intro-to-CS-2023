@@ -27,6 +27,64 @@ package introtocsHW1;
  * @author Efraim Dov Neimand
  */
 public class HW1 {
+ 
+    /**
+      * The average of two numbers
+      * @param a The first number
+      * @param b The second number
+      * @return The average of a and b
+      */
+     public static double average(int a, int b){
+         double average;
+
+         ///////Insert your code below this line. //////////////
+        /*
+        THIS EXERCISE WILL BE SOLVED IN CLASS
+
+        We have declared three variables for you, a, b and average.
+        You don't know what a, b are, and average is undefined.
+
+        Set average to be the average of a and b.
+
+        For example, if a is 1 and b is 3 then average will be 2.
+        If a is 1 and b is 2 then average will be 1.5.
+
+        The code that you write should be in place of these instructions.
+        To be clear, delete these instructions, and replace them with your own
+        code following these instructions.
+
+        */////////All student code should be above this line.////////////////
+
+         return average;
+     }
+
+     /**
+      * Converts miles to kilometers
+      * @param miles The number of miles
+      * @return The conversion to kilometers
+      */
+     public static double milesToKilometer(double miles){
+         double kilometers;
+
+         ///////Insert your code below this line. //////////////
+        /*
+        THIS EXERCISE WILL BE SOLVED IN CLASS
+
+        We have declared two variables for you, miles and kilometers.
+        You don't know what miles is, and kilometers is undefined.
+
+        Set kilometers to be the conversions of miles into kilometers.
+        (One mile equals 1.60935 kilometers.)
+
+        For example, if miles is 10 then miles will be 16.0935.
+
+        The code that you write should be in place of these instructions.
+        To be clear, delete these instructions, and replace them with your own
+        code following these instructions.
+
+        */////////All student code should be above this line.////////////////
+         return kilometers;
+     }
     
     /**
      * The absolute value of a number.
@@ -270,7 +328,95 @@ public class HW1 {
         */////////All student code should be above this line.////////////////
         return atPond;
     }
-    
+
+      /**
+      * From binary representation to decimal
+      * @param binary The binary (base-2) representation of an integer
+      * @return The decimal (base-10) representation of binary
+      */
+     public static int binaryToDecimal(int binary){
+         int decimal;
+
+         ///////Insert your code below this line. //////////////
+        /*
+
+        We have declared two variables for you, binary and decimal.
+        You don't know what binary is, and decimal is undefined.
+        binary is a non-negative int variable that represents an integer in base 2.
+        For example, binary =  101 is the base-2 representation of 5.
+
+        Set decimal to be value (in base 10) of binary.
+
+        For example, if binary is 101 then decimal will be 5.
+
+        The code that you write should be in place of these instructions.
+        To be clear, delete these instructions, and replace them with your own
+        code following these instructions.
+
+        */////////All student code should be above this line.////////////////
+         return decimal;
+     }
+
+     /**
+      * From decimal (base-10) representation to binary (base-2) representation
+      * @param decimal The decimal (base-10) representation of an integer
+      * @return The binary (base-2) representation of decimal
+      */
+     public static int decimalToBinary(int decimal){
+         int binary;
+
+         ///////Insert your code below this line. //////////////
+        /*
+
+        The int variable decimal is a non-negative integer (in base 10).
+
+        Set binary to be the binary representation (in base 2) of decimal.
+
+        For example, if decimal is 5 then binary will be 101.
+
+        The code that you write should be in place of these instructions.
+        To be clear, delete these instructions, and replace them with your own
+        code following these instructions.
+
+        */////////All student code should be above this line.////////////////
+         return binary;
+     }
+
+      /**
+      * Multiply two complex numbers
+      * (In linear algebra you learned to multiply complex numbers.) 
+      * Suppose we have two complex numbers z1 =  Re1 + Im1 * i
+      * and z2 = Re2 + Im2 * i
+      * Denote their multiplication by z3 = z1 * z2, where z3 = Re3 + Im3 * i
+      * @param Re1 Real part of first number 
+      * @param Im1 Imaginary part of first number
+      * @param Re2 Real part of second number
+      * @param Im2 Imaginary part of second number
+      * @return Re3, Im3, the real and imaginary parts of z3 
+      */
+     public static double[] multiplyComplexNumbers(double Re1, double Im1, double Re2, double Im2){
+         double Re3, Im3;
+
+         ///////Insert your code below this line. //////////////
+        /*
+
+        We have declared six variables for you:
+        Re1 and Im1 are the real and imaginary parts of z1,
+        Re2, Im2 -- for z2 and Re3, Im3 -- for z3, all as described above.
+        You need to calculate z3 = z1 * z2 and assign Re3 and Im3 accordingly.
+
+        For example, if Re1 = 0, Im1 = 1, Re2 = 0, and Im2 = 1. 
+        In this case  z1 = i and z2 = i and therefore z3 = i * i = -1
+        So, Re3 = -1 and Im3 = 0.  
+          
+        The code that you write should be in place of these instructions.
+        To be clear, delete these instructions, and replace them with your own
+        code following these instructions.
+
+        */////////All student code should be above this line.////////////////
+         return new double[]{Re3, Im3};
+     }
+
     /**
      * In a cell colony, each cell splits in two with every generation.  Each
      * cell dies after 5 generations.  This method determines how many cells 
@@ -459,6 +605,11 @@ public class HW1 {
      * @param args This parameter is not used.
      */
     public static void main(String[] args) {
+        System.out.println("average test 1: "  + (average(5,7) == 6) +
+                "\naverage test 2: "  + (average(1,2) == 1.5));
+        System.out.println("milesToKilometers test 1: (should be 16.0935) answer is: "  + milesToKilometer(10) +
+                "\nmilesToKilometers test 2: (should be 5.632725) answer is: "  + milesToKilometer(3.5));
+     
         System.out.println("abs test 1: "  + (abs(7) == 7) + 
                 "\nabs test 2: "  + equals(abs(-0.4), 0.4, 1e-14));
         System.out.println("equal test 1: " + equals(3, 3.000001, 1e-2) + 
@@ -471,6 +622,15 @@ public class HW1 {
                 (swap('c', 'q')[0] == 'q' && swap('c', 'q')[1] == 'c'));
         System.out.println("duckWalk test 1: " + !duckWalk(1, true) + 
                 "\nduckWalk test 2: " + !duckWalk(2, false));
+
+        System.out.println("binaryToDecimal test 1: "  + (binaryToDecimal(101) == 5) +
+                "\nbinaryToDecimal test 2: "  + (binaryToDecimal(1010) == 10));
+        System.out.println("decimalToBinary test 1: "  + (decimalToBinary(5) == 101) +
+                "\ndecimalToBinary test 2: "  + (decimalToBinary(10) == 1010));
+        System.out.println("multiplyComplexNumbers test 1: "
+                + ((multiplyComplexNumbers(0,1,0,1)[0] == 0)
+                && (multiplyComplexNumbers(0,1,0,1)[1] == 1)));
+     
         System.out.println("numCells test 1: " + (numCells(3, 1) == 8) + 
                 "\nnumCells test 2: " + (numCells(6, 1) == 60));
         System.out.println("rocketLocation test 1: " + (
