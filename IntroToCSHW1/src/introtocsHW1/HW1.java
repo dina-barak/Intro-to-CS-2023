@@ -368,7 +368,18 @@ public class HW1 {
         
         For example, if rocketAngle = pi/2, thrust = 20.8, fuelCapacity = 2,
         and elapsedTime = 4 then you should have xLoc = 0 and 
-        yLoc = 10 + 10 - 9.8 - 9.8 = 0.4.
+        For the first two seconds we have y-acceleration = 20.8 - 9.8 = 10
+        For the first second we have y-velocity = 10.  and for the second second 
+        y-velocity = 20.
+        For the third and fourth seconds there is no fuel, so the 
+        y-accelearation = -9.8.
+        At the third second y-velocity = 10.2, 
+        and the 4th second y-velocity =0.4.
+        
+        yLoc = 10 + 20 + 10.2 + 0.4 = 40.4.
+        
+        xLoc = 0 since it starts at 0 and the acceleration in the x dimension is 
+        0.
         
         The code that you write should be in place of these instructions.
         To be clear, delete these instructions, and replace them with your own
