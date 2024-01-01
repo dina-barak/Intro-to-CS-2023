@@ -21,6 +21,8 @@
 
 package introtocsHW1;
 
+import static test.SomeSolutions.ballInBox;
+
  /** 
  * This class includes a sampling of functions that every intro to CS student
  * should know how to implement.
@@ -679,7 +681,7 @@ public class HW1 {
      * simple code you write, can play a greater roll in a group project.
      */
     public static void watchBall(){
-        new Graphic("Ball", -1, 6, 6, 20, 50, 2, 3, 600, 400, 4) {
+        new Graphic("Ball in a Box", "ball.jpg", -1, 6, 6, 20, 50, 2, 3, 600, 400, 4) {
             @Override
             public double[] updatePos(double[] x) {
                 return ballInBox(x[0], x[1], x[2], x[3], (int)x[4], (int)x[5], x[6]);
