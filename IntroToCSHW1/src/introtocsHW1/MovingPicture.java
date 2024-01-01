@@ -149,7 +149,7 @@ public class MovingPicture {
      *
      * @return True if its meant to rotate, false otherwise.
      */
-    public boolean roates() {
+    public boolean rotates() {
         return rotate != -1;
     }
 
@@ -170,7 +170,7 @@ public class MovingPicture {
     public void addTo(BufferedImage bi) {
         Graphics2D g2 = bi.createGraphics();
 
-        if (roates()) {
+        if (rotates()) {
             g2.translate(centerX(), centerY());
             g2.rotate(rotation());
         }
