@@ -459,81 +459,108 @@ public class HW1 {
     }
     
     /**
-     * A rocket is fired from the origin in the two dimensional plane.
-     * It's angle relative to the ground remains constant.
-     * 
-     * Velocity is the change in location.  Every second the x-location changes
-     * by the x-velocity and the y-location changes by the y-velocity.  For 
-     * example, if the x-velocity is 5, and the x-location is 32, then after one
-     * second the x location is 37, and after two it is 42.
-     * 
-     * Its initial x and y velocity is 0.
-     * 
-     * Acceleration is the change in velocity.  
-     * There is both an x-acceleration and a y-acceleration. It has the same 
-     * relationship to velocity that velocity has to location.
-     * 
-     * The rocket's initial acceleration in the x dimension is 
-     * thrust * cos(rocketAngle) and it's initial y-acceleration is 
-     * thrust * sin(rocketAngle) - 9.8.
-     * 
-     * fuelCapacity is the amount of time in seconds the rocket is fueled for. 
-     * If the  rocket is still in the air after fuelCapcity seconds have expired
-     * then the x-acceleration changes to 0, and the y-acceleration changes to
-     * -9.8.  
-     * 
-     * 
-     * This method gives the location of the rocket after elapsedTime
-     * number of seconds.
-     * @param rocketAngle The unchanging angle of the rocket in radians.
-     * @param thrust The thrust of the rocket until the fuel expires.
-     * @param fuelCapcity The number of seconds before thrust changes to 0.
-     * @param elapsedTime The number of seconds that have transpired since the
-     * rocket was launched.
-     * @return The (x,y) location of the rocket.
+     * Finds the number of coprime pairs in an interval of integers.
+     * @param from The smallest number in the interval.
+     * @param to The end of the interval, exclusive.
+     * @return The number of coprime pairs in the interval.
      */
-    public static double[] rocketLocation(double rocketAngle, double thrust, int fuelCapcity, int elapsedTime){
-        double xLoc = 0, yLoc = 0;
+    private int coPrime(int from, int to){
         
         ///////Insert your code below this line. //////////////
         /*
-        Read the rocket description above starting with
-        "* A rocket is fired from the origin in the two dimensional plane."
+        Two integers are coprime if they share no common factors, except for 1.
         
-        We have declared several variables for you.  xLoc and yLoc start with 
-        values of 0.
+        We provide you with two integers that you don't know the values of, from
+        and to.
         
-        rocketAngle, thrust, fuelCapacity, and elapsed time have unknown values.
+        Create an integer called numCoPrimes.  Set it's value equal to the 
+        number of coprimes greater than or equal to from and less than to.
         
-        Set xLoc and yLoc to the respecitve x and y values describing the 
-        location of the rocket at Elapsed time.  The starting time is 0.
-        
-        You will need to use Java's native sin and cosin functionsions.  
-        If you want to find the sin and cos values for some theta,
-        use Math.sin(theta) and Math.cos(theta).
-        
-        For example, if rocketAngle = pi/2, thrust = 20.8, fuelCapacity = 2,
-        and elapsedTime = 4 then you should have xLoc = 0 and 
-        For the first two seconds we have y-acceleration = 20.8 - 9.8 = 10
-        For the first second we have y-velocity = 10.  and for the second second 
-        y-velocity = 20.
-        For the third and fourth seconds there is no fuel, so the 
-        y-accelearation = -9.8.
-        At the third second y-velocity = 10.2, 
-        and the 4th second y-velocity =0.4.
-        
-        yLoc = 10 + 20 + 10.2 + 0.4 = 40.4.
-        
-        xLoc = 0 since it starts at 0 and the acceleration in the x dimension is 
-        0.
+        For example, if from is 3 and to is 7 then the following are coPrime
+        pairs (3, 4), (3, 5), (4, 5), and (5, 6).  So set numCoPrimes = 4.
         
         The code that you write should be in place of these instructions.
         To be clear, delete these instructions, and replace them with your own
         code following these instructions.
-        
         */////////All student code should be above this line.////////////////
         
-        return new double[]{xLoc, yLoc};
+        return numCoPrimes;
+    }
+    
+    /**
+     * A ball moves an increment in a box.
+     * @param xLoc The x-locations of the ball.
+     * @param yLoc The y-location of the ball.
+     * @param xVel The x velocity of the ball.
+     * @param yVel The y-velocity of the ball.
+     * @param rightWall The x value of the right wall.
+     * @param cieling The y value of the top wall.
+     * @return The balls new location and velocity values 
+     * [xLoc, yLoc, xVel, yVel]
+     */
+    public static double[] ballInBox(
+            double xLoc, double yLoc, final double xVel, 
+            final double yVel, final int rightWall, 
+            final int cieling, final double diameter){
+       
+        ///////Insert your code below this line. //////////////
+        /*
+        A ball is bouncing around the inside of a two dimensional box.
+        The ball's center has an x-location, a y-location, an x-velocity, and a 
+        y-velocity all tracked by the variables xLoc, yLoc, xVel, and yVel.
+        
+        The box has four walls, one on the x axis, one on the y axis, one 
+        rightWall parallel to the y axis, and one cieling parallel to the left
+        axis.
+        
+        The balls diameter is in the variable with the same name, which you 
+        also do not know.
+        
+        You need to update the location and velocity variables for a single time 
+        increment.
+        
+        When the ball is away from the edges of the box, it location is affected
+        only by its velocity.  The velocity values are added to the location
+        values.  The velocity itself is unchanged in this case.
+        
+        For example, if xLoc = 30, yLoc = 20, xVel = 5, and yVel = -5, then 
+        you need to set xLoc = 35 and yLoc = 15.
+        
+        For the purpose of this exercise, we assume that the ball has 100% 
+        elasticity. That means that if the ball hits the wall it's velocity
+        orhthagonal to the wall is reversed, i.e. mulitiplied by -1, and the 
+        ball moves in the opposited direction.  
+        
+        The x-velocity is reversed when the ball hits the y axis and rightWall.
+        The y-velocity is reversed when the ball hits the x axis and the ceiling.
+        
+        For example, if a ball has a xLoc = 4 and xVel = -10, and a radius of 2
+        then it's new x-location will be xLoc = 10.  
+        It moved 2 toward the x-axis, when the edge of the ball at radius two 
+        hit the axis. Then moves 8 back up totalling 2 + 8 = 10, 
+        the ball's speed.  
+        Its x-velocity is now xVel=+10.  
+        All other values remain unchanged since the ball isn't near any other 
+        walls.
+        
+        For example, if the ball is near the ceiling, let xLoc = 20, 
+        yLoc = 50, xVel = 2, and yVel = 5, and cieling = 53. The ball moves a 
+        total distance of five, up three, hits the cieling, and comes down two.  
+        yLoc = 51.
+        The velocity is changed to yVel = -5, since the ball bounced off the 
+        cieling and is now headed in the opposite direction. 
+        xLoc = 22 since it is unnefected by the wall. 
+        Similarly, xVel is unefected.
+        
+        Ignore any effext of gravity or other physics processes, as they are
+        outside the scope of this question.
+        
+        The code that you write should be in place of these instructions.
+        To be clear, delete these instructions, and replace them with your own
+        code following these instructions.
+        */////////All student code should be above this line.////////////////
+        
+        return new double[]{xLoc, yLoc, xVel, yVel, rightWall, cieling, diameter};
     }
     
     /**
@@ -601,10 +628,11 @@ public class HW1 {
     }
     
     /**
-     * Some helpful tests for your methods.
-     * @param args This parameter is not used.
+     * Some helpful tests that students are strongly encouraged to run before
+     * submission.  Graders will apply different tests, so be sure your code
+     * is robust.  You are encouraged to write your own additional testing.
      */
-    public static void main(String[] args) {
+    public static void runTests(){
         System.out.println("average test 1: "  + (average(5,7) == 6) +
                 "\naverage test 2: "  + (average(1,2) == 1.5));
         System.out.println("milesToKilometers test 1: (should be 16.0935) answer is: "  + milesToKilometer(10) +
@@ -633,10 +661,41 @@ public class HW1 {
      
         System.out.println("numCells test 1: " + (numCells(3, 1) == 8) + 
                 "\nnumCells test 2: " + (numCells(6, 1) == 60));
-        System.out.println("rocketLocation test 1: " + (
-                equals(rocketLocation(Math.PI/2, 20.8, 2, 4)[0], 0, 1e-10) && 
-                equals(rocketLocation(Math.PI/2, 20.8, 2, 4)[1], 0.4, 1e-12))
+        
+        double[] ballInBox = ballInBox(20, 50, 2, 3, 600, 400, 4);
+        System.out.println("ballInBox: " + (
+                equals(ballInBox[3], -5, 1e-13) && 
+                equals(ballInBox[1], 51, 1e-13) &&
+                equals(ballInBox[0], 22, 1e-13))
         );
+        
         System.out.println("pi test: " + equals(pi(10_000), Math.PI, 1e-4));
     }
+    
+    
+    /**
+     * This should let you watch the ball bounce around the box using the 
+     * code you wrote.  It's a great tool to test your code, and see how
+     * simple code you write, can play a greater roll in a group project.
+     */
+    public static void watchBall(){
+        new Graphic("Ball", -1, 6, 6, 20, 50, 2, 3, 600, 400, 4) {
+            @Override
+            public double[] updatePos(double[] x) {
+                return ballInBox(x[0], x[1], x[2], x[3], (int)x[4], (int)x[5], x[6]);
+            }
+        };
+    }
+    
+    
+    /**
+     * Some helpful tests for your methods.
+     * @param args This parameter is not used.
+     */
+    public static void main(String[] args) {
+        runTests();
+        watchBall();
+    }
+    
+        
 }
