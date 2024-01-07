@@ -56,12 +56,11 @@ public abstract class Graphic extends JFrame {
         }
 
         setSize(600, 400);
-
-        int delay = 5;
-
+        
         buffer = new BufferedImage(getWidth(), getHeight(),
                 BufferedImage.TYPE_INT_ARGB);
 
+        final int delay = 10;
         new Timer(delay, (ActionEvent e) -> {
             picture.update(x -> updatePos(x));
             repaint();
@@ -94,7 +93,7 @@ public abstract class Graphic extends JFrame {
         new Graphic("Test", "rocket.png", 2, 3, 4, 0, 400, Math.PI / 4, 80, 30) {
             @Override
             public double[] updatePos(double[] x) {
-                x[0]++;
+                x[0]+=2;
                 x[1]-=2;
                 return x;
             }

@@ -169,17 +169,14 @@ public class MovingPicture {
      */
     public void addTo(BufferedImage bi) {
         Graphics2D g2 = bi.createGraphics();
-
-        if (rotates()) {
-            g2.translate(centerX(), centerY());
-            g2.rotate(rotation());
-        }
+        g2.translate(centerX(), centerY());
+        
+        if (rotates()) g2.rotate(rotation());
 
         double xMult = 1, yMult = 1;
         if (hasWidth()) xMult = getWidth() / fileWidth();
         if (hasHeight()) yMult = getHeight() / fileHeight();
         
-        g2.translate(centerX(), centerY());
         g2.scale(xMult, yMult);
 
         g2.drawImage(image, -fileWidth()/2, -fileHeight()/2, null);

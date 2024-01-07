@@ -18,28 +18,30 @@
  * Questions regarding this assignment should be addressed to Dr. Neimand,
  * dovne@sce.ac.il
  */
-
 package introtocsHW1;
 
+import static introtocsHW1.PartialSolution.ballInBox;
 import static test.SomeSolutions.ballInBox;
 
- /** 
+/**
  * This class includes a sampling of functions that every intro to CS student
  * should know how to implement.
+ *
  * @author Efraim Dov Neimand
  */
 public class HW1 {
- 
-    /**
-      * The average of two numbers
-      * @param a The first number
-      * @param b The second number
-      * @return The average of a and b
-      */
-     public static double average(int a, int b){
-         double average;
 
-         ///////Insert your code below this line. //////////////
+    /**
+     * The average of two numbers
+     *
+     * @param a The first number
+     * @param b The second number
+     * @return The average of a and b
+     */
+    public static double average(int a, int b) {
+        double average;
+
+        ///////Insert your code below this line. //////////////
         /*
         THIS EXERCISE WILL BE SOLVED IN CLASS
 
@@ -55,20 +57,20 @@ public class HW1 {
         To be clear, delete these instructions, and replace them with your own
         code following these instructions.
 
-        */////////All student code should be above this line.////////////////
+         */////////All student code should be above this line.////////////////
+        return average;
+    }
 
-         return average;
-     }
+    /**
+     * Converts miles to kilometers
+     *
+     * @param miles The number of miles
+     * @return The conversion to kilometers
+     */
+    public static double milesToKilometer(double miles) {
+        double kilometers;
 
-     /**
-      * Converts miles to kilometers
-      * @param miles The number of miles
-      * @return The conversion to kilometers
-      */
-     public static double milesToKilometer(double miles){
-         double kilometers;
-
-         ///////Insert your code below this line. //////////////
+        ///////Insert your code below this line. //////////////
         /*
         THIS EXERCISE WILL BE SOLVED IN CLASS
 
@@ -84,18 +86,19 @@ public class HW1 {
         To be clear, delete these instructions, and replace them with your own
         code following these instructions.
 
-        */////////All student code should be above this line.////////////////
-         return kilometers;
-     }
-    
+         */////////All student code should be above this line.////////////////
+        return kilometers;
+    }
+
     /**
      * The absolute value of a number.
+     *
      * @param x The number of which the absolute value is desired.
      * @return The absolute value of x.
      */
-    public static double abs(double x){
+    public static double abs(double x) {
         double abs;
-        
+
         ///////Insert your code below this line. //////////////
         /*
         
@@ -111,20 +114,20 @@ public class HW1 {
         To be clear, delete these instructions, and replace them with your own
         code following these instructions.
         
-        */////////All student code should be above this line.////////////////
-        
+         */////////All student code should be above this line.////////////////
         return abs;
     }
-    
+
     /**
      * Are the two values nearly equal to one another?
+     *
      * @param x The first value.
      * @param y The second value.
      * @param error The margin of error allowed for numerical errors.
      * @return True if they are equal, false otherwise.
      */
-    public static boolean equals(double x, double y, double error){
-        
+    public static boolean equals(double x, double y, double error) {
+
         ///////Insert your code below this line. //////////////
         /*
         
@@ -143,19 +146,18 @@ public class HW1 {
         To be clear, delete these instructions, and replace them with your own
         code following these instructions.
         
-        */////////All student code should be above this line.////////////////
-        
+         */////////All student code should be above this line.////////////////
         return areEqual;
     }
-    
+
     /**
      * Determines weather or not an integer is prime.
+     *
      * @param n The integer in question.
      * @return If n is prime then true, otherwise false.
      */
-    public static boolean isPrime(int n){
-        
-        
+    public static boolean isPrime(int n) {
+
         ///////Insert your code below this line. //////////////
         /*
         
@@ -172,21 +174,21 @@ public class HW1 {
         To be clear, delete these instructions, and replace them with your own
         code following these instructions.
         
-        */////////All student code should be above this line.////////////////
-        
+         */////////All student code should be above this line.////////////////
         return isPrime;
     }
-    
+
     /**
-     * Gets the digit of the desired index in a number.
-     * For example, if num = 5762, and ind = 2 then this method will return 7.
-     * If ind = 0, then this method will return 2.
+     * Gets the digit of the desired index in a number. For example, if num =
+     * 5762, and ind = 2 then this method will return 7. If ind = 0, then this
+     * method will return 2.
+     *
      * @param num The number from which a digit is to be taken.
      * @param ind The index of the desired digit.
      * @return The digit in number num at index ind.
      */
-    public static int digit(int num, int ind){
-        
+    public static int digit(int num, int ind) {
+
         ///////Insert your code below this line. //////////////
         /*
         
@@ -205,18 +207,18 @@ public class HW1 {
         To be clear, delete these instructions, and replace them with your own
         code following these instructions.
         
-        */////////All student code should be above this line.////////////////
-        
+         */////////All student code should be above this line.////////////////
         return digit;
     }
-    
+
     /**
      * Finds the requested digit of a number in binary notation.
+     *
      * @param num The number the digit is taken from.
      * @param ind the index of the desired digit.
      * @return the digit, true for 1, false for 0, and the given index.
      */
-    public static boolean binaryDigit(int num, int ind){
+    public static boolean binaryDigit(int num, int ind) {
         ///////Insert your code below this line. //////////////
         /*
         
@@ -241,20 +243,21 @@ public class HW1 {
         To be clear, delete these instructions, and replace them with your own
         code following these instructions.
         
-        */////////All student code should be above this line.////////////////
-        
+         */////////All student code should be above this line.////////////////
+
         return ind;
     }
-    
+
     /**
      * This method swaps the values of a and b, returning an array where the
      * first value is b and the second value is a.
+     *
      * @param a The first value.
      * @param b The second value.
      * @return And array of {b, a}.
      */
-    public static char[] swap(char a, char b){
-        
+    public static char[] swap(char a, char b) {
+
         ///////Insert your code below this line. //////////////
         /*
         
@@ -269,31 +272,27 @@ public class HW1 {
         To be clear, delete these instructions, and replace them with your own
         code following these instructions.
         
-        */////////All student code should be above this line.////////////////
-        
+         */////////All student code should be above this line.////////////////
         return new char[]{a, b};
     }
-    
+
     /**
-     * There are two locations, the pond, and the tree.
-     * There is a duck that likes to walk from one, to the other, in either 
-     * direction.
-     * At the end of each walk, the duck is at the other location, whichever
-     * one the duck did not start the walk at.
-     * If the duck goes for one walk, and starts at the pond, 
-     * then the duck finishes at the the tree.
-     * If the duck goes for two walks, and starts at the tree, then the first
-     * walk takes the duck to the pond, and the second walk takes the duck back
-     * to the tree.
-     * 
-     * @param numWalks The total number of walks the duck takes.  This should be
+     * There are two locations, the pond, and the tree. There is a duck that
+     * likes to walk from one, to the other, in either direction. At the end of
+     * each walk, the duck is at the other location, whichever one the duck did
+     * not start the walk at. If the duck goes for one walk, and starts at the
+     * pond, then the duck finishes at the the tree. If the duck goes for two
+     * walks, and starts at the tree, then the first walk takes the duck to the
+     * pond, and the second walk takes the duck back to the tree.
+     *
+     * @param numWalks The total number of walks the duck takes. This should be
      * nonNegative.
      * @param startsAtPond True if the duck starts at the pond, and false if the
      * duck starts at the tree.
-     * @return True if the duck finishes at the pond and false if the duck 
+     * @return True if the duck finishes at the pond and false if the duck
      * finishes at the tree.
      */
-    public static boolean duckWalk(int numWalks, boolean startsAtPond){
+    public static boolean duckWalk(int numWalks, boolean startsAtPond) {
         ///////Insert your code below this line. //////////////
         /*
         
@@ -327,19 +326,20 @@ public class HW1 {
         To be clear, delete these instructions, and replace them with your own
         code following these instructions.
         
-        */////////All student code should be above this line.////////////////
+         */////////All student code should be above this line.////////////////
         return atPond;
     }
 
-      /**
-      * From binary representation to decimal
-      * @param binary The binary (base-2) representation of an integer
-      * @return The decimal (base-10) representation of binary
-      */
-     public static int binaryToDecimal(int binary){
-         int decimal;
+    /**
+     * From binary representation to decimal
+     *
+     * @param binary The binary (base-2) representation of an integer
+     * @return The decimal (base-10) representation of binary
+     */
+    public static int binaryToDecimal(int binary) {
+        int decimal;
 
-         ///////Insert your code below this line. //////////////
+        ///////Insert your code below this line. //////////////
         /*
 
         We have declared two variables for you, binary and decimal.
@@ -355,19 +355,20 @@ public class HW1 {
         To be clear, delete these instructions, and replace them with your own
         code following these instructions.
 
-        */////////All student code should be above this line.////////////////
-         return decimal;
-     }
+         */////////All student code should be above this line.////////////////
+        return decimal;
+    }
 
-     /**
-      * From decimal (base-10) representation to binary (base-2) representation
-      * @param decimal The decimal (base-10) representation of an integer
-      * @return The binary (base-2) representation of decimal
-      */
-     public static int decimalToBinary(int decimal){
-         int binary;
+    /**
+     * From decimal (base-10) representation to binary (base-2) representation
+     *
+     * @param decimal The decimal (base-10) representation of an integer
+     * @return The binary (base-2) representation of decimal
+     */
+    public static int decimalToBinary(int decimal) {
+        int binary;
 
-         ///////Insert your code below this line. //////////////
+        ///////Insert your code below this line. //////////////
         /*
 
         The int variable decimal is a non-negative integer (in base 10).
@@ -380,26 +381,27 @@ public class HW1 {
         To be clear, delete these instructions, and replace them with your own
         code following these instructions.
 
-        */////////All student code should be above this line.////////////////
-         return binary;
-     }
+         */////////All student code should be above this line.////////////////
+        return binary;
+    }
 
-      /**
-      * Multiply two complex numbers
-      * (In linear algebra you learned to multiply complex numbers.) 
-      * Suppose we have two complex numbers z1 =  Re1 + Im1 * i
-      * and z2 = Re2 + Im2 * i
-      * Denote their multiplication by z3 = z1 * z2, where z3 = Re3 + Im3 * i
-      * @param Re1 Real part of first number 
-      * @param Im1 Imaginary part of first number
-      * @param Re2 Real part of second number
-      * @param Im2 Imaginary part of second number
-      * @return Re3, Im3, the real and imaginary parts of z3 
-      */
-     public static double[] multiplyComplexNumbers(double Re1, double Im1, double Re2, double Im2){
-         double Re3, Im3;
+    /**
+     * Multiply two complex numbers (In linear algebra you learned to multiply
+     * complex numbers.) Suppose we have two complex numbers z1 = Re1 + Im1 * i
+     * and z2 = Re2 + Im2 * i Denote their multiplication by z3 = z1 * z2, where
+     * z3 = Re3 + Im3 * i
+     *
+     * @param Re1 Real part of first number
+     * @param Im1 Imaginary part of first number
+     * @param Re2 Real part of second number
+     * @param Im2 Imaginary part of second number
+     * @return Re3, Im3, the real and imaginary parts of z3
+     */
+    public static double[] multiplyComplexNumbers(double Re1, double Im1,
+            double Re2, double Im2) {
+        double Re3, Im3;
 
-         ///////Insert your code below this line. //////////////
+        ///////Insert your code below this line. //////////////
         /*
 
         We have declared six variables for you:
@@ -415,22 +417,23 @@ public class HW1 {
         To be clear, delete these instructions, and replace them with your own
         code following these instructions.
 
-        */////////All student code should be above this line.////////////////
-         return new double[]{Re3, Im3};
-     }
+         */////////All student code should be above this line.////////////////
+        return new double[]{Re3, Im3};
+    }
 
     /**
-     * In a cell colony, each cell splits in two with every generation.  Each
-     * cell dies after 5 generations.  This method determines how many cells 
+     * In a cell colony, each cell splits in two with every generation. Each
+     * cell dies after 5 generations. This method determines how many cells
      * there are in the colony after a given number of generations.
-     * @param numGenerations The number of generations that transpire.
-     * This should be nonnegative.
-     * @param initialNumberOfCells The number of cells in the colony.
-     * This should be nonnegative.
-     * @return The number of cells in the colony after numGenerations 
+     *
+     * @param numGenerations The number of generations that transpire. This
+     * should be nonnegative.
+     * @param initialNumberOfCells The number of cells in the colony. This
+     * should be nonnegative.
+     * @return The number of cells in the colony after numGenerations
      * generations.
      */
-    public static int numCells(int numGenerations, int initialNumberOfCells){
+    public static int numCells(int numGenerations, int initialNumberOfCells) {
         ///////Insert your code below this line. //////////////
         /*
         In a cell colony, each cell splits in two with every generation.  Each
@@ -456,18 +459,19 @@ public class HW1 {
         To be clear, delete these instructions, and replace them with your own
         code following these instructions.
         
-        */////////All student code should be above this line.////////////////
+         */////////All student code should be above this line.////////////////
         return numCells;
     }
-    
+
     /**
      * Finds the number of coprime pairs in an interval of integers.
+     *
      * @param from The smallest number in the interval.
      * @param to The end of the interval, exclusive.
      * @return The number of coprime pairs in the interval.
      */
-    private int coPrime(int from, int to){
-        
+    private int coPrime(int from, int to) {
+
         ///////Insert your code below this line. //////////////
         /*
         Two integers are coprime if they share no common factors, except for 1.
@@ -484,13 +488,13 @@ public class HW1 {
         The code that you write should be in place of these instructions.
         To be clear, delete these instructions, and replace them with your own
         code following these instructions.
-        */////////All student code should be above this line.////////////////
-        
+         */////////All student code should be above this line.////////////////
         return numCoPrimes;
     }
-    
+
     /**
      * A ball moves an increment in a box.
+     *
      * @param xLoc The x-locations of the ball.
      * @param yLoc The y-location of the ball.
      * @param xVel The x velocity of the ball.
@@ -498,14 +502,14 @@ public class HW1 {
      * @param rightWall The x value of the right wall.
      * @param cieling The y value of the top wall.
      * @param diameter The diameter of the ball.
-     * @return The balls new location and velocity values 
-     * [xLoc, yLoc, xVel, yVel]
+     * @return The balls new location and velocity values [xLoc, yLoc, xVel,
+     * yVel]
      */
-    public static double[] ballInBox(
-            double xLoc, double yLoc, final double xVel, 
-            final double yVel, final int rightWall, 
-            final int cieling, final double diameter){
-       
+    public static Ball ballInBox(
+            double xLoc, double yLoc, double xVel,
+            double yVel, final int rightWall,
+            final int cieling, final double diameter) {
+
         ///////Insert your code below this line. //////////////
         /*
         A ball is bouncing around the inside of a two dimensional box.
@@ -530,9 +534,9 @@ public class HW1 {
         you need to set xLoc = 35 and yLoc = 15.
         
         For the purpose of this exercise, we assume that the ball has 100% 
-        elasticity. That means that if the ball hits the wall it's velocity
-        orhthagonal to the wall is reversed, i.e. mulitiplied by -1, and the 
-        ball moves in the opposited direction.  
+        elasticity. That means that if the edge of the ball hits the wall it's 
+        velocity orhthagonal to the wall is reversed, i.e. mulitiplied by -1, 
+        and the ball moves in the opposited direction.  
         
         The x-velocity is reversed when the ball hits the y axis and rightWall.
         The y-velocity is reversed when the ball hits the x axis and the ceiling.
@@ -561,17 +565,17 @@ public class HW1 {
         The code that you write should be in place of these instructions.
         To be clear, delete these instructions, and replace them with your own
         code following these instructions.
-        */////////All student code should be above this line.////////////////
-        
-        return new double[]{xLoc, yLoc, xVel, yVel, rightWall, cieling, diameter};
+         */////////All student code should be above this line.////////////////
+        return new Ball(diameter, xLoc, yLoc, xVel, yVel);
     }
-    
+
     /**
      * Finds pi using a sampling of points against the unit circle.
+     *
      * @param gridWidth The square root of the number of test points.
      * @return An approximation of pi.
      */
-    public static double pi(int gridWidth){
+    public static double pi(int gridWidth) {
         double pi;
         ///////Insert your code below this line. //////////////
         /*
@@ -626,78 +630,111 @@ public class HW1 {
         To be clear, delete these instructions, and replace them with your own
         code following these instructions.
         
-        */////////All student code should be above this line.////////////////
+         */////////All student code should be above this line.////////////////
         return pi;
     }
-    
+
     /**
      * Some helpful tests that students are strongly encouraged to run before
-     * submission.  Graders will apply different tests, so be sure your code
-     * is robust.  You are encouraged to write your own additional testing.
+     * submission. Graders will apply different tests, so be sure your code is
+     * robust. You are encouraged to write your own additional testing.
      */
-    public static void runTests(){
-        System.out.println("average test 1: "  + (average(5,7) == 6) +
-                "\naverage test 2: "  + (average(1,2) == 1.5));
-        System.out.println("milesToKilometers test 1: (should be 16.0935) answer is: "  + milesToKilometer(10) +
-                "\nmilesToKilometers test 2: (should be 5.632725) answer is: "  + milesToKilometer(3.5));
-     
-        System.out.println("abs test 1: "  + (abs(7) == 7) + 
-                "\nabs test 2: "  + equals(abs(-0.4), 0.4, 1e-14));
-        System.out.println("equal test 1: " + equals(3, 3.000001, 1e-2) + 
-                "\nequal test 2: " + !equals(3, 12, 1e-7));
-        System.out.println("isPrime test 1: " + !isPrime(9) + 
-                "\nisPrime test 2: " + isPrime(5));
-        System.out.println("getDigit test 1: " + (digit(5762, 2) == 7) + 
-                "\ngetDigit test 2: " + (digit(5762, 0) == 2));
-        System.out.println("swap test: " + 
-                (swap('c', 'q')[0] == 'q' && swap('c', 'q')[1] == 'c'));
-        System.out.println("duckWalk test 1: " + !duckWalk(1, true) + 
-                "\nduckWalk test 2: " + !duckWalk(2, false));
+    public static void runTests() {
+        System.out.println("average test 1: " + (average(5, 7) == 6)
+                + "\naverage test 2: " + (average(1, 2) == 1.5));
+        System.out.println(
+                "milesToKilometers test 1: (should be 16.0935) answer is: "
+                + milesToKilometer(10)
+                + "\nmilesToKilometers test 2: (should be 5.632725) answer is: "
+                + milesToKilometer(3.5));
 
-        System.out.println("binaryToDecimal test 1: "  + (binaryToDecimal(101) == 5) +
-                "\nbinaryToDecimal test 2: "  + (binaryToDecimal(1010) == 10));
-        System.out.println("decimalToBinary test 1: "  + (decimalToBinary(5) == 101) +
-                "\ndecimalToBinary test 2: "  + (decimalToBinary(10) == 1010));
+        System.out.println("abs test 1: " + (abs(7) == 7) + "\nabs test 2: "
+                + equals(abs(-0.4), 0.4, 1e-14));
+        System.out.println("equal test 1: " + equals(3, 3.000001, 1e-2)
+                + "\nequal test 2: " + !equals(3, 12, 1e-7));
+        System.out.println("isPrime test 1: " + !isPrime(9)
+                + "\nisPrime test 2: " + isPrime(5));
+        System.out.println("getDigit test 1: " + (digit(5762, 2) == 7)
+                + "\ngetDigit test 2: " + (digit(5762, 0) == 2));
+        System.out.println("swap test: " + (swap('c', 'q')[0] == 'q'
+                && swap('c', 'q')[1] == 'c'));
+        System.out.println("duckWalk test 1: " + !duckWalk(1, true)
+                + "\nduckWalk test 2: " + !duckWalk(2, false));
+
+        System.out.println("binaryToDecimal test 1: " + (binaryToDecimal(101)
+                == 5) + "\nbinaryToDecimal test 2: " + (binaryToDecimal(1010)
+                == 10));
+        System.out.println("decimalToBinary test 1: " + (decimalToBinary(5)
+                == 101) + "\ndecimalToBinary test 2: " + (decimalToBinary(10)
+                == 1010));
         System.out.println("multiplyComplexNumbers test 1: "
-                + ((multiplyComplexNumbers(0,1,0,1)[0] == 0)
-                && (multiplyComplexNumbers(0,1,0,1)[1] == 1)));
-     
-        System.out.println("numCells test 1: " + (numCells(3, 1) == 8) + 
-                "\nnumCells test 2: " + (numCells(6, 1) == 60));
-        
-        double[] ballInBox = ballInBox(4, 20, -10, -5, 600, 400, 4);
-        System.out.println("ballInBox: " + (
-                equals(ballInBox[2], 10, 1e-13) &&
-                equals(ballInBox[0], 10, 1e-13))
+                + ((multiplyComplexNumbers(0, 1, 0, 1)[0] == 0)
+                && (multiplyComplexNumbers(0, 1, 0, 1)[1] == 1)));
+
+        System.out.println("numCells test 1: " + (numCells(3, 1) == 8)
+                + "\nnumCells test 2: " + (numCells(6, 1) == 60));
+
+        Ball ballInBox = ballInBox(4, 20, -10, -5, 600, 400, 4);
+        System.out.println("ballInBox: " + (equals(ballInBox.loc.x, 10, 1e-13)
+                && equals(ballInBox.vel.x, 10, 1e-13))
         );
-        
+
         System.out.println("pi test: " + equals(pi(10_000), Math.PI, 1e-4));
     }
-    
-    
+
     /**
-     * This should let you watch the ball bounce around the box using the 
-     * code you wrote.  It's a great tool to test your code, and see how
-     * simple code you write, can play a greater roll in a group project.
+     * This should let you watch the ball bounce around the box using the code
+     * you wrote. It's a great tool to test your code, and see how simple code
+     * you write, can play a greater roll in a group project.
      */
-    public static void watchBall(){
-        new Graphic("Ball in a Box", "ball.jpg", -1, 6, 6, 20, 50, 2, 3, 600, 400, 4) {
+    public static void watchBall() {
+
+        int diameter = 30, cieling = 400, rightWall = 600, heightIndex = 6,
+                initX = 40, initY = 50;
+
+        double initXVel = 2, initYVel = 1.5;
+
+        new Graphic("Ball in a Box",
+                "ball.jpg",
+                -1,
+                heightIndex,
+                heightIndex,
+                initX, //xLoc
+                initY, //yLoc
+                initXVel, //xVel
+                initYVel, //yVel
+                rightWall, //rightWall
+                cieling, //Cieling
+                diameter//diameter
+        ) {
             @Override
             public double[] updatePos(double[] x) {
-                return ballInBox(x[0], x[1], x[2], x[3], (int)x[4], (int)x[5], x[6]);
+                Ball ballInBox = ballInBox(
+                        x[0], //xLoc
+                        x[1], //yLoc
+                        x[2], //xVel
+                        x[3], //yVel
+                        rightWall, //rightWall
+                        cieling, //cieling
+                        diameter //diameter
+                );
+
+                return new double[]{
+                    ballInBox.loc.x,
+                    ballInBox.loc.y,
+                    ballInBox.vel.x,
+                    ballInBox.vel.y,
+                    rightWall,
+                    cieling,
+                    diameter
+                };
             }
         };
     }
-    
-    
-    /**
-     * Some helpful tests for your methods.
-     * @param args This parameter is not used.
-     */
+
     public static void main(String[] args) {
         runTests();
         watchBall();
     }
-    
-        
+
 }
