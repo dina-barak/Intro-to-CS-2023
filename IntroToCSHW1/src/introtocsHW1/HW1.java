@@ -497,6 +497,7 @@ public class HW1 {
      * @param yVel The y-velocity of the ball.
      * @param rightWall The x value of the right wall.
      * @param cieling The y value of the top wall.
+     * @param diameter The diameter of the ball.
      * @return The balls new location and velocity values 
      * [xLoc, yLoc, xVel, yVel]
      */
@@ -536,7 +537,7 @@ public class HW1 {
         The x-velocity is reversed when the ball hits the y axis and rightWall.
         The y-velocity is reversed when the ball hits the x axis and the ceiling.
         
-        For example, if a ball has a xLoc = 4 and xVel = -10, and a radius of 2
+        For example, if a ball has a xLoc = 4 and xVel = -10, and a diameter = 4
         then it's new x-location will be xLoc = 10.  
         It moved 2 toward the x-axis, when the edge of the ball at radius two 
         hit the axis. Then moves 8 back up totalling 2 + 8 = 10, 
@@ -664,11 +665,10 @@ public class HW1 {
         System.out.println("numCells test 1: " + (numCells(3, 1) == 8) + 
                 "\nnumCells test 2: " + (numCells(6, 1) == 60));
         
-        double[] ballInBox = ballInBox(20, 50, 2, 3, 600, 400, 4);
+        double[] ballInBox = ballInBox(4, 20, -10, -5, 600, 400, 4);
         System.out.println("ballInBox: " + (
-                equals(ballInBox[3], -5, 1e-13) && 
-                equals(ballInBox[1], 51, 1e-13) &&
-                equals(ballInBox[0], 22, 1e-13))
+                equals(ballInBox[2], 10, 1e-13) &&
+                equals(ballInBox[0], 10, 1e-13))
         );
         
         System.out.println("pi test: " + equals(pi(10_000), Math.PI, 1e-4));
