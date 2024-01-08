@@ -49,7 +49,7 @@ public class PartialSolution {
     private static int changeDir(double upperBound, double lowerBound,
             double loc) {
         
-        return (loc < lowerBound - 1e-5 || loc > upperBound  + 1e-5? -1: 1);
+        return loc < lowerBound - 1e-5 || loc > upperBound  + 1e-5? -1: 1;
     }
 
     /**

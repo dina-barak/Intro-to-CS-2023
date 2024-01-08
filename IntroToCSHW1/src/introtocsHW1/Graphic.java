@@ -60,7 +60,7 @@ public abstract class Graphic extends JFrame {
         buffer = new BufferedImage(getWidth(), getHeight(),
                 BufferedImage.TYPE_INT_ARGB);
 
-        final int delay = 10;
+        final int delay = 5;
         new Timer(delay, (ActionEvent e) -> {
             picture.update(x -> updatePos(x));
             repaint();
