@@ -245,7 +245,7 @@ public class HW1 {
         
          */////////All student code should be above this line.////////////////
 
-        return ind;
+        return digit;
     }
 
     /**
@@ -517,7 +517,7 @@ public class HW1 {
         y-velocity all tracked by the variables xLoc, yLoc, xVel, and yVel.
         
         The box has four walls, one on the x axis, one on the y axis, one 
-        rightWall parallel to the y axis, and one cieling parallel to the left
+        rightWall parallel to the y axis, and one cieling parallel to the x
         axis.
         
         The balls diameter is in the variable with the same name, which you 
@@ -535,8 +535,8 @@ public class HW1 {
         
         For the purpose of this exercise, we assume that the ball has 100% 
         elasticity. That means that if the edge of the ball hits the wall it's 
-        velocity orhthagonal to the wall is reversed, i.e. mulitiplied by -1, 
-        and the ball moves in the opposited direction.  
+        velocity orthogonal to the wall is reversed, i.e. mulitiplied by -1, 
+        and the ball moves in the opposite direction.  
         
         The x-velocity is reversed when the ball hits the y axis and rightWall.
         The y-velocity is reversed when the ball hits the x axis and the ceiling.
@@ -550,7 +550,7 @@ public class HW1 {
         All other values remain unchanged since the ball isn't near any other 
         walls.
         
-        For example, if the ball is near the ceiling, let xLoc = 20, 
+        For example, if the ball is near the ceiling (and has 0 diameter), let xLoc = 20, 
         yLoc = 50, xVel = 2, and yVel = 5, and cieling = 53. The ball moves a 
         total distance of five, up three, hits the cieling, and comes down two.  
         yLoc = 51.
@@ -668,11 +668,11 @@ public class HW1 {
                 == 101) + "\ndecimalToBinary test 2: " + (decimalToBinary(10)
                 == 1010));
         System.out.println("multiplyComplexNumbers test 1: "
-                + ((multiplyComplexNumbers(0, 1, 0, 1)[0] == 0)
-                && (multiplyComplexNumbers(0, 1, 0, 1)[1] == 1)));
+                + ((multiplyComplexNumbers(0, 1, 0, 1)[0] == -1)
+                && (multiplyComplexNumbers(0, 1, 0, 1)[1] == 0)));
 
         System.out.println("numCells test 1: " + (numCells(3, 1) == 8)
-                + "\nnumCells test 2: " + (numCells(6, 1) == 60));
+                + "\nnumCells test 2: " + (numCells(6, 1) == 61));
 
         Ball ballInBox = ballInBox(4, 20, -10, -5, 600, 400, 4);
         System.out.println("ballInBox: " + (equals(ballInBox.loc.x, 10, 1e-13)
