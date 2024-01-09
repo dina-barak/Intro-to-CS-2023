@@ -20,8 +20,6 @@
  */
 package introtocsHW1;
 
-import static introtocsHW1.PartialSolution.ballInBox;
-import static test.SomeSolutions.ballInBox;
 
 /**
  * This class includes a sampling of functions that every intro to CS student
@@ -93,7 +91,7 @@ public class HW1 {
     /**
      * The absolute value of a number.
      *
-     * @param x The number of which the absolute value is desired.
+     * @param x The number for which the absolute value is desired.
      * @return The absolute value of x.
      */
     public static double abs(double x) {
@@ -161,8 +159,8 @@ public class HW1 {
         ///////Insert your code below this line. //////////////
         /*
         
-        We have declared integer n for you.  You don't know what the value we
-        put in n is.  We want you to create a boolean variable called isPrime, 
+        We have declared integer n for you.  You don't know what n is.  
+        We want you to create a boolean variable called isPrime, 
         and  set its value to true if n is prime, and false otherwise.  
         
         For example, if n = 9 then isPrime should be set to false.  If n = 5
@@ -194,11 +192,12 @@ public class HW1 {
         
         We have declared two variables for you, num and ind.  
         You don't know what their values are.
+        
         We want you to create a variable called digit that will hold a value
         between 0 and 9.
         Set digit to be the digit of num at the given index.  If ind = 0, then
-        digit should equal one's value of num.  
-        If ind = 1 then digit should equal the ten's value, and so on.
+        digit should equal to the one's column value of num.  
+        If ind = 1 then digit should equal the ten's column value, and so on.
         
         For example, if num = 5762, and ind = 2 then digit = 7.
         If ind = 0, then digit = 2.
@@ -226,18 +225,21 @@ public class HW1 {
         You don't know what their values are.
         We want you to create a variable called digit that can hold exactly
         two values.
+        
         Set digit to be the digit of num in binary representation at the given 
         index.  
-        If ind = 0, then digit should equal one's value of num.  
-        If ind = 1 then digit should equal the two's value, and so on.
         
-        For example, if num = 5, and ind = 2 then digit = true.
-        If ind = 0, then digit = true.
+        If ind = 0, then digit should equal one's column value of num.  
+        If ind = 1 then digit should equal the two's column value, and so on.
+        
+        For example, if num = 5, and ind = 2 then digit = true to indicate there
+        is a 1 there.
+        If ind = 0, then digit = true to indicate there is a 1 there.
+        Use false to indicate a 0 when appropriate.
         
         You may use any resource you like to help you understand binary numbers
-        in a mathamatical context.  As always, you should not be looking at
-        any one else's code to help you solve this problem.
-        
+        in a strictly mathamatical context.  As always, you should not be 
+        looking at any one else's code to help you solve this problem.
         
         The code that you write should be in place of these instructions.
         To be clear, delete these instructions, and replace them with your own
@@ -407,6 +409,7 @@ public class HW1 {
         We have declared six variables for you:
         Re1 and Im1 are the real and imaginary parts of z1,
         Re2, Im2 -- for z2 and Re3, Im3 -- for z3, all as described above.
+        
         You need to calculate z3 = z1 * z2 and assign Re3 and Im3 accordingly.
 
         For example, if Re1 = 0, Im1 = 1, Re2 = 0, and Im2 = 1. 
@@ -436,16 +439,18 @@ public class HW1 {
     public static int numCells(int numGenerations, int initialNumberOfCells) {
         ///////Insert your code below this line. //////////////
         /*
-        In a cell colony, each cell splits in two with every generation.  Each
-        cell dies after 5 generations.  This method determines how many cells 
-        there are in the colony after a given number of generations.
+        In a cell colony, each cell splits in two with every generation, one new
+        cell and one origanal older cell.  
+        Each cell dies after 2 generations.  
+        This method determines how many cells there are in the colony after a 
+        given number of generations.
         
         We have declared two variables for you, numGenerations and 
         initialNumberOfCells.  
         You don't know what their values are. 
-        numGenerations represents the total number of geneartions you need to
+        numGenerations represents the total number of generations you need to
         track and initialNumberOfCells the number of cells the colony starts 
-        with.
+        with, all brand new.
         
         Create a variable called numCells and set it equal to the number of 
         cells in the colony after numGenerations generations.

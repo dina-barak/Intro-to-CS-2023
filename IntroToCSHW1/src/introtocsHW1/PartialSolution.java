@@ -1,15 +1,16 @@
 package introtocsHW1;
 
 import java.util.Arrays;
+import java.util.LinkedList;
 
 /**
- *
+ * A solution to the ball problem in the assignment.
  * @author Dov Neimand
  */
 public class PartialSolution {
 
     /**
-     * reflects x around the axis.
+     * Reflects x around the axis.
      *
      * @param axis The axis x is reflected around.
      * @param x The value to be reflected.
@@ -132,7 +133,40 @@ public class PartialSolution {
         };
     }
 
+    /**
+     * The sum of all the elements in the list.
+     * @param list The list of elements whose sum is desired.
+     * @return The sum of all the elements in the list.
+     */
+    private static int sum(LinkedList<Integer> list){
+        return list.stream().mapToInt(i -> i).sum();
+    }
+    
+    public static int numCells(int numGenerations, int initialNumberOfCells) {
+        
+        final int LIFE_SPAN = 2;
+        
+        LinkedList<Integer> recent = new LinkedList<>();
+        
+        recent.add(initialNumberOfCells);
+        
+        while(recent.size() < LIFE_SPAN && recent.size() < numGenerations)
+            recent.add(sum(recent));
+        
+        for(int gen = LIFE_SPAN; gen < numGenerations; gen++){
+            recent.add(sum(recent));
+            recent.removeFirst();
+        }
+        
+        return sum(recent);
+    }
+    
+    
+    
+    
     public static void main(String[] args) {
-        watchBall();
+//        watchBall();
+        for(int i = 1; i < 15; i++)
+            System.out.println(i + ":" + numCells(i, 1));
     }
 }
