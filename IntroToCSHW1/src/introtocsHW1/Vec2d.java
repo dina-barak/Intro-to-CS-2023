@@ -1,7 +1,7 @@
 package introtocsHW1;
 
 /**
- * A 2d vector class.
+ * An immutable 2d vector class.
  * @author Dov Neimand
  */
 public class Vec2d {

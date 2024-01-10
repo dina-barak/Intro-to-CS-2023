@@ -456,9 +456,11 @@ public class HW1 {
         cells in the colony after numGenerations generations.
         
         For example, if initialNumberOfCells = 1, and numGenerations = 3 then 
-        numCells should be set to 8.  If however numGenerations is 6 then 
+        numCells should be set to 3.  1 + 1 + (2 - 1) = 3.
+        
+        If however numGenerations is 6 then 
         and initialNumberOfCells = 1 then 
-        numCells should be (2*2*2*2*2-1)*2-1 = 61.
+        numCells should be 13.
         
         The code that you write should be in place of these instructions.
         To be clear, delete these instructions, and replace them with your own
