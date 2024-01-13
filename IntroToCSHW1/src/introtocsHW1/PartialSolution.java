@@ -165,7 +165,7 @@ public class PartialSolution {
     
     
     public static void main(String[] args) {
-//        watchBall();
+        watchBall();
         for(int i = 1; i < 15; i++)
             System.out.println(i + ":" + numCells(i, 1));
     }
