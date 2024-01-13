@@ -73,14 +73,14 @@ public class PartialSolution {
 
         double r = diameter/2;
 
-        double xLocNew = move(rightWall - r, r, xLoc, xVel);
-        double yLocNew = move(cieling - r, r, yLoc, yVel);
+        xLoc = move(rightWall - r, r, xLoc, xVel);
+        yLoc = move(cieling - r, r, yLoc, yVel);
         
         xVel *= changeDir(rightWall - r, r, xLoc + xVel);
         yVel *= changeDir(cieling - r, r, yLoc + yVel);
         
 
-        return new Ball(diameter, xLocNew, yLocNew, xVel, yVel);
+        return new Ball(diameter, xLoc, yLoc, xVel, yVel);
     }
 
     /**
@@ -96,7 +96,7 @@ public class PartialSolution {
         double initXVel = 2, initYVel = 1.5;
 
         new Graphic("Ball in a Box",
-                "IntroToCSHW1/Ball.jpg",
+                "ball.jpg",
                 -1,
                 heightIndex,
                 heightIndex,

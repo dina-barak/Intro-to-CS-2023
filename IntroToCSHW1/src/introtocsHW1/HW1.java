@@ -539,8 +539,8 @@ public class HW1 {
         
         For example, if xLoc = 30, yLoc = 20, xVel = 5, and yVel = -5, then 
         you need to set xLoc = 35 and yLoc = 15.
-        (We shall always assume that xVel < rightWall - diameter
-        and yVel < ceiling - diameter, and therefore the ball may
+        (We shall always assume that xVel < rightWall - 2*diameter
+        and yVel < ceiling - 2*diameter, and therefore the ball may
         only bounce once during a step.)
         
         For the purpose of this exercise, we assume that the ball has 100% 
