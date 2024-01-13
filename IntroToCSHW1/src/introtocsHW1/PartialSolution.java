@@ -72,15 +72,15 @@ public class PartialSolution {
             final int cieling, final double diameter) {
 
         double r = diameter/2;
-        
-        xLoc = move(rightWall - r, r, xLoc, xVel);
-        yLoc = move(cieling, r, yLoc, yVel);
+
+        double xLocNew = move(rightWall - r, r, xLoc, xVel);
+        double yLocNew = move(cieling - r, r, yLoc, yVel);
         
         xVel *= changeDir(rightWall - r, r, xLoc + xVel);
         yVel *= changeDir(cieling - r, r, yLoc + yVel);
         
 
-        return new Ball(diameter, xLoc, yLoc, xVel, yVel);
+        return new Ball(diameter, xLocNew, yLocNew, xVel, yVel);
     }
 
     /**
@@ -96,7 +96,7 @@ public class PartialSolution {
         double initXVel = 2, initYVel = 1.5;
 
         new Graphic("Ball in a Box",
-                "ball.jpg",
+                "IntroToCSHW1/Ball.jpg",
                 -1,
                 heightIndex,
                 heightIndex,

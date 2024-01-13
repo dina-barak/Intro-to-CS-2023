@@ -539,6 +539,9 @@ public class HW1 {
         
         For example, if xLoc = 30, yLoc = 20, xVel = 5, and yVel = -5, then 
         you need to set xLoc = 35 and yLoc = 15.
+        (We shall always assume that xVel < rightWall - diameter
+        and yVel < ceiling - diameter, and therefore the ball may
+        only bounce once during a step.)
         
         For the purpose of this exercise, we assume that the ball has 100% 
         elasticity. That means that if the edge of the ball hits the wall it's 
@@ -620,7 +623,9 @@ public class HW1 {
         (1, -1), (1, 0), (1, 1).
         
         Set pi = The number of grid points that are in the unit circle, 
-        times four, divided by the total number of grid points.  
+        times four, divided by the total number of small squares
+        created by the grid in the big square [-1, 1]X[-1, 1]. In our example
+        there are 4 small squares.
         
         You can check if some point, (x, y) is in the unit circle by checking
         if x^2 + y^2 <= 1.
@@ -678,8 +683,8 @@ public class HW1 {
                 + ((multiplyComplexNumbers(0, 1, 0, 1)[0] == -1)
                 && (multiplyComplexNumbers(0, 1, 0, 1)[1] == 0)));
 
-        System.out.println("numCells test 1: " + (numCells(3, 1) == 8)
-                + "\nnumCells test 2: " + (numCells(6, 1) == 61));
+        System.out.println("numCells test 1: " + (numCells(3, 1) == 3)
+                + "\nnumCells test 2: " + (numCells(6, 1) == 13));
 
         Ball ballInBox = ballInBox(4, 20, -10, -5, 600, 400, 4);
         System.out.println("ballInBox: " + (equals(ballInBox.loc.x, 10, 1e-13)
@@ -702,7 +707,7 @@ public class HW1 {
         double initXVel = 2, initYVel = 1.5;
 
         new Graphic("Ball in a Box",
-                "ball.jpg",
+                "IntroToCSHW1/Ball.jpg",
                 -1,
                 heightIndex,
                 heightIndex,
