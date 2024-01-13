@@ -78,7 +78,7 @@ public class HW1 {
         Set kilometers to be the conversions of miles into kilometers.
         (One mile equals 1.60935 kilometers.)
 
-        For example, if miles is 10 then miles will be 16.0935.
+        For example, if miles is 10 then kilometers will be 16.0935.
 
         The code that you write should be in place of these instructions.
         To be clear, delete these instructions, and replace them with your own
@@ -166,7 +166,7 @@ public class HW1 {
         For example, if n = 9 then isPrime should be set to false.  If n = 5
         then isPrime should be true.  A reminder, a number is prime if and only
         if it is divisible by two distinct numbers, 1 and itself. Note that
-        a result of the previous sentence is that 1 is composite.
+        a result of the previous sentence is that 1 is not a prime.
         
         The code that you write should be in place of these instructions.
         To be clear, delete these instructions, and replace them with your own
@@ -238,7 +238,7 @@ public class HW1 {
         Use false to indicate a 0 when appropriate.
         
         You may use any resource you like to help you understand binary numbers
-        in a strictly mathamatical context.  As always, you should not be 
+        in a strictly mathematical context.  As always, you should not be
         looking at any one else's code to help you solve this problem.
         
         The code that you write should be in place of these instructions.
@@ -309,7 +309,7 @@ public class HW1 {
         one the duck did not start the walk at.
         
         If the duck goes for one walk (numWalks = 1), and starts at the pond, 
-        then the duck finishes at the the tree.
+        then the duck finishes at the tree.
         If the duck goes for two (num walks = 2) walks, and starts at the tree, 
         then the first walk takes the duck to the pond, and the second walk 
         takes the duck back to, and finishes at the tree.
@@ -440,9 +440,9 @@ public class HW1 {
         ///////Insert your code below this line. //////////////
         /*
         In a cell colony, each cell splits in two with every generation, one new
-        cell and one origanal older cell.  
+        cell and one original older cell.
         Each cell dies after 2 generations.  
-        This method determines how many cells there are in the colony after a 
+        We want to determine how many cells there are in the colony after a
         given number of generations.
         
         We have declared two variables for you, numGenerations and 
@@ -458,7 +458,7 @@ public class HW1 {
         For example, if initialNumberOfCells = 1, and numGenerations = 3 then 
         numCells should be set to 3.  1 + 1 + (2 - 1) = 3.
         
-        If however numGenerations is 6 then 
+        If however numGenerations is 6
         and initialNumberOfCells = 1 then 
         numCells should be 13.
         
@@ -537,8 +537,9 @@ public class HW1 {
         only by its velocity.  The velocity values are added to the location
         values.  The velocity itself is unchanged in this case.
         
-        For example, if xLoc = 30, yLoc = 20, xVel = 5, and yVel = -5, then 
-        you need to set xLoc = 35 and yLoc = 15.
+        For example, if xLoc = 30, yLoc = 20, xVel = 5, yVel = -5, and
+        rightWall = ceiling = 100, then you need to set xLoc = 35 and yLoc = 15.
+
         (We shall always assume that xVel < rightWall - 2*diameter
         and yVel < ceiling - 2*diameter, and therefore the ball may
         only bounce once during a step.)
@@ -553,8 +554,8 @@ public class HW1 {
         
         For example, if a ball has a xLoc = 4 and xVel = -10, and a diameter = 4
         then it's new x-location will be xLoc = 10.  
-        It moved 2 toward the x-axis, when the edge of the ball at radius two 
-        hit the axis. Then moves 8 back up totalling 2 + 8 = 10, 
+        It moved 2 toward the y-axis, when the edge of the ball at radius two
+        hit the axis. Then moves 8 back to the right totalling 2 + 8 = 10,
         the ball's speed.  
         Its x-velocity is now xVel=+10.  
         All other values remain unchanged since the ball isn't near any other 
@@ -615,7 +616,7 @@ public class HW1 {
         for membership in the  circle.
         The bottom left point in your grid should be the point (-1,-1),
         and the top right point in your grid should be (1,1).
-        The width and height of the grid should be the variable gridWidth,
+        The width and height of the grid are determined by the variable gridWidth,
         defined for you above.  You do not know the value of gridWith.
         
         For example, if gridWidth = 3, then the grid will be the following set
