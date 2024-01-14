@@ -4,7 +4,8 @@ import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.util.function.Function;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 
 /**
@@ -13,63 +14,52 @@ import javax.imageio.ImageIO;
  * @author Dov Neimand
  *
  */
-public class MovingPicture {
+public abstract class MovingPicture {
 
     public final BufferedImage image;
-    protected double[] x;
-    private final int rotate, height, width;
+    protected Vec2d loc;
+    /**
+     * The rotation, height, and width of the image..
+     */
+    protected double rotate, height, width;
 
     /**
      * The constructor.
      *
      * @param image The address of the image.
-     * @param heightInd The index of the height variable in startX. If there is
-     * no set height, then this should be -1;
-     * @param rotationInd The index of the rotation value in startX. If there is
-     * none, then this should be -1.
-     * @param widthIndex The index of the width value in startX. If there is
-     * none, then this should be -1.
-     * @param startX the data neccesesary to set the position of the image. The
-     * first value should be the x position, and the second value the y
-     * position.
+     * @param height The height of the picture.  Pass Double.NaN to use the file
+     * height.
+     * @param rotation The rotation of the picture.  Pass 0 or Double.NaN if
+     * there is no rotation.
+     * @param width The width of the picture.  Pass Double.NaN to use the 
+     * file width.
+     * @param startLoc The starting location of the center of the image.
+     * @throws java.io.IOException If the file image is not found.
      */
-    public MovingPicture(String image, int rotationInd, int heightInd,
-            int widthIndex, double... startX) throws IOException {
+    public MovingPicture(String image, double rotation, int height,
+            int width, Vec2d startLoc) {
 
-        this.image = ImageIO.read(new File(image));
-        x = startX;
+        try {
+            this.image = ImageIO.read(new File(image));
+        } catch (IOException ex) {
+            Logger.getLogger(MovingPicture.class.getName()).
+                    log(Level.SEVERE, null, ex);
+            throw new RuntimeException("File is missing.");
+        }
+        loc = startLoc;
 
-        this.rotate = rotationInd;
-        this.height = heightInd;
-        this.width = widthIndex;
+        this.rotate = rotation;
+        this.height = height;
+        this.width = width;
     }
-
-    /**
-     * Resets the image data, x.
-     *
-     * @param f A function that takes the previous position data and generates
-     * new position data.
-     */
-    public void update(Function<double[], double[]> f) {
-        x = f.apply(x);
-    }
-
+   
     /**
      * The x location of the image.
      *
-     * @return The x location of the center of the image.
+     * @return The x location of the  of the image.
      */
-    public int centerX() {
-        return (int) x[0];
-    }
-
-    /**
-     * The y location of the center of the image.
-     *
-     * @return The y location of the image.
-     */
-    public int centerY() {
-        return (int) x[1];
+    public Vec2d center() {
+        return loc;
     }
 
     /**
@@ -77,18 +67,11 @@ public class MovingPicture {
      *
      * @return The top left corner of the image.
      */
-    public int topLeftX() {
-        return centerX() + (int) (getWidth() / 2);
+    public Vec2d topLeft() {
+        Vec2d center = center();
+        return new Vec2d(center.x + getWidth()/2, center.y + getHeight()/2);
     }
 
-    /**
-     * The top right corner of the image.
-     *
-     * @return The top right corner of the image.
-     */
-    public int topLeftY() {
-        return centerY() + (int) (getHeight() / 2);
-    }
 
     /**
      * The width of the image.
@@ -114,7 +97,7 @@ public class MovingPicture {
      * @return True if there is a separate height. False otherwise.
      */
     public boolean hasHeight() {
-        return height != -1;
+        return height != Double.NaN;
     }
 
     /**
@@ -123,7 +106,7 @@ public class MovingPicture {
      * @return True if there is an artificially set height, false otherwise.
      */
     public boolean hasWidth() {
-        return width != -1;
+        return width != Double.NaN;
     }
 
     /**
@@ -132,7 +115,7 @@ public class MovingPicture {
      * @return The height the image should be set to.
      */
     public double getHeight() {
-        return x[height];
+        return height;
     }
 
     /**
@@ -141,7 +124,7 @@ public class MovingPicture {
      * @return The width the image should be set to.
      */
     public double getWidth() {
-        return x[width];
+        return width;
     }
 
     /**
@@ -150,7 +133,7 @@ public class MovingPicture {
      * @return True if its meant to rotate, false otherwise.
      */
     public boolean rotates() {
-        return rotate != -1;
+        return rotate != 0 && rotate !=  Double.NaN;
     }
 
     /**
@@ -159,7 +142,7 @@ public class MovingPicture {
      * @return The angle of rotation in radians.
      */
     public double rotation() {
-        return x[rotate];
+        return rotate;
     }
 
     /**
@@ -169,7 +152,8 @@ public class MovingPicture {
      */
     public void addTo(BufferedImage bi) {
         Graphics2D g2 = bi.createGraphics();
-        g2.translate(centerX(), centerY());
+        Vec2d cen = center();
+        g2.translate(cen.x, cen.y);
         
         if (rotates()) g2.rotate(rotation());
 
@@ -183,5 +167,10 @@ public class MovingPicture {
 
         g2.dispose();
     }
+    
+    /**
+     * updates the location.
+     */
+    public abstract void updateLoc();
 
 }

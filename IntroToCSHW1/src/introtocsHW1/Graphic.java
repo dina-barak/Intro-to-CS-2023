@@ -16,62 +16,41 @@ import javax.swing.Timer;
  *
  * @author Dov Neimand
  */
-public abstract class Graphic extends JFrame {
+public class Graphic extends JFrame {
 
     private MovingPicture picture;
-
-    /**
-     * Updates the position of the rocket.
-     *
-     * @param x The old position data.
-     * @return The new [x, y] position. Depending on the implementation, more
-     * data may be necessary.
-     */
-    public abstract double[] updatePos(double[] x);
 
     /**
      * The constructor.
      *
      * @param title The title of the window.
-     * @param fileName The name of the file that has the picture.
-     * @param rotationInd The index of the rotation variable. This should be -1
-     * if there is no rotation variable.
-     * @param heightInd The index of the height variable. This should be -1 if
-     * there is no height variable.
-     * @param widthInd The index of the width variable. This should be -1 if
-     * there is no width variable.
-     * @param data All the data for the rocket.
+     * @param picture The picture that moves around this frame.
+     * 
      */
-    public Graphic(String title, String fileName, int rotationInd, int heightInd, int widthInd,
-            double... data) {
+    public Graphic(String title,  MovingPicture picture) {
         super(title);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        try {
-            picture = new MovingPicture(fileName, rotationInd, heightInd,
-                    widthInd, data);
-        } catch (IOException ex) {
-            Logger.getLogger(Graphic.class.getName()).
-                    log(Level.SEVERE, null, ex);
-        }
+        this.picture = picture;
 
         setSize(600, 400);
         
-        buffer = new BufferedImage(getWidth(), getHeight(),
-                BufferedImage.TYPE_INT_ARGB);
+        buffer = new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_INT_ARGB);
 
-        final int delay = 5;
+        final int delay = 10;
         new Timer(delay, (ActionEvent e) -> {
-            picture.update(x -> updatePos(x));
+            picture.updateLoc();
             repaint();
         }).start();
 
-//        add(new DrawingPanel());
         setVisible(true);
     }
 
     private final BufferedImage buffer;
 
+    /**
+     * Sets the background to black.
+     */
     private void setBackground(){
         Graphics2D g2 = buffer.createGraphics();
         g2.setColor(Color.black);
@@ -90,13 +69,18 @@ public abstract class Graphic extends JFrame {
     }
 
     public static void main(String[] args) {
-        new Graphic("Test", "rocket.png", 2, 3, 4, 0, 400, Math.PI / 4, 80, 30) {
+        new Graphic(
+                "Test", 
+                new MovingPicture(
+                "rocket.png", 
+                Math.PI/4, 
+                60, 
+                30, 
+                new Vec2d(0, 400)) {
             @Override
-            public double[] updatePos(double[] x) {
-                x[0]+=2;
-                x[1]-=2;
-                return x;
-            }
-        };
+            public void updateLoc() {
+                loc = new Vec2d(loc.x + 1, loc.y - 1);
+            }}
+        );
     }
 }

@@ -1,6 +1,5 @@
 package introtocsHW1;
 
-import java.util.Arrays;
 import java.util.LinkedList;
 
 /**
@@ -90,47 +89,70 @@ public class PartialSolution {
      */
     public static void watchBall() {
 
-        int diameter = 30, cieling = 400, rightWall = 600, heightIndex = 6,
-                initX = 40, initY = 50;
+        final int diameter = 30, cieling = 400, rightWall = 600;
 
-        double initXVel = 2, initYVel = 1.5;
+        Vec2d loc = new Vec2d(40, 50), initVel = new Vec2d(2, 1.5);
+        
 
-        new Graphic("Ball in a Box",
-                "ball.jpg",
-                -1,
-                heightIndex,
-                heightIndex,
-                initX, //xLoc
-                initY, //yLoc
-                initXVel, //xVel
-                initYVel, //yVel
-                rightWall, //rightWall
-                cieling, //Cieling
-                diameter//diameter
-        ) {
+        new Graphic("Ball in Box", 
+                new MovingPicture("ball.jpg", 
+                        0, diameter,
+                diameter, loc) {
+             private Vec2d vel = initVel;
+                    
             @Override
-            public double[] updatePos(double[] x) {
-                Ball ballInBox = ballInBox(
-                        x[0], //xLoc
-                        x[1], //yLoc
-                        x[2], //xVel
-                        x[3], //yVel
-                        rightWall, //rightWall
-                        cieling, //cieling
-                        diameter //diameter
-                );
-
-                return new double[]{
-                    ballInBox.loc.x,
-                    ballInBox.loc.y,
-                    ballInBox.vel.x,
-                    ballInBox.vel.y,
-                    rightWall,
-                    cieling,
-                    diameter
-                };
+            public void updateLoc() {
+                Ball ball = ballInBox(
+                        loc.x, 
+                        loc.y, 
+                        vel.x, 
+                        vel.y, 
+                        rightWall, 
+                        cieling, 
+                        diameter);
+                loc = ball.loc;
+                vel = ball.vel;
             }
-        };
+            
+        });
+        
+        
+//        new Graphic("Ball in a Box",
+//                ,
+//                -1,
+//                heightIndex,
+//                heightIndex,
+//                initX, //xLoc
+//                initY, //yLoc
+//                initXVel, //xVel
+//                initYVel, //yVel
+//                rightWall, //rightWall
+//                cieling, //Cieling
+//                diameter//diameter
+//        ) {
+//            @Override
+//            public double[] updatePos(double[] x) {
+//                Ball ballInBox = ballInBox(
+//                        x[0], //xLoc
+//                        x[1], //yLoc
+//                        x[2], //xVel
+//                        x[3], //yVel
+//                        rightWall, //rightWall
+//                        cieling, //cieling
+//                        diameter //diameter
+//                );
+//
+//                return new double[]{
+//                    ballInBox.loc.x,
+//                    ballInBox.loc.y,
+//                    ballInBox.vel.x,
+//                    ballInBox.vel.y,
+//                    rightWall,
+//                    cieling,
+//                    diameter
+//                };
+//            }
+//        };
     }
 
     /**
