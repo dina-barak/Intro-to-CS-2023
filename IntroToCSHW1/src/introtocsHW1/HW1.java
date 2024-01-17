@@ -20,6 +20,8 @@
  */
 package introtocsHW1;
 
+import static introtocsHW1.PartialSolution.ballInBox;
+
 
 /**
  * This class includes a sampling of functions that every intro to CS student
@@ -702,47 +704,32 @@ public class HW1 {
      */
     public static void watchBall() {
 
-        int diameter = 30, cieling = 400, rightWall = 600, heightIndex = 6,
-                initX = 40, initY = 50;
+        final int diameter = 30, cieling = 400, rightWall = 600;
 
-        double initXVel = 2, initYVel = 1.5;
-
-        new Graphic("Ball in a Box",
-                "IntroToCSHW1/Ball.jpg",
-                -1,
-                heightIndex,
-                heightIndex,
-                initX, //xLoc
-                initY, //yLoc
-                initXVel, //xVel
-                initYVel, //yVel
-                rightWall, //rightWall
-                cieling, //Cieling
-                diameter//diameter
-        ) {
+        Vec2d initLoc = new Vec2d(40, 50), initVel = new Vec2d(2, 1.5);
+        
+        new Graphic("Ball in Box", 
+                new MovingPicture("ball.jpg", 
+                        0, diameter,
+                diameter, initLoc) {
+             private Vec2d vel = initVel;
+                    
             @Override
-            public double[] updatePos(double[] x) {
-                Ball ballInBox = ballInBox(
-                        x[0], //xLoc
-                        x[1], //yLoc
-                        x[2], //xVel
-                        x[3], //yVel
-                        rightWall, //rightWall
-                        cieling, //cieling
-                        diameter //diameter
-                );
-
-                return new double[]{
-                    ballInBox.loc.x,
-                    ballInBox.loc.y,
-                    ballInBox.vel.x,
-                    ballInBox.vel.y,
-                    rightWall,
-                    cieling,
-                    diameter
-                };
+            public void update() {
+                Ball ball = ballInBox(
+                        loc.x, 
+                        loc.y, 
+                        vel.x, 
+                        vel.y, 
+                        rightWall, 
+                        cieling, 
+                        diameter);
+                loc = ball.loc;
+                vel = ball.vel;
             }
-        };
+            
+        });
+        
     }
 
     public static void main(String[] args) {

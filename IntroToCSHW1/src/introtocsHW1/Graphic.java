@@ -39,7 +39,7 @@ public class Graphic extends JFrame {
 
         final int delay = 10;
         new Timer(delay, (ActionEvent e) -> {
-            picture.updateLoc();
+            picture.update();
             repaint();
         }).start();
 
@@ -78,7 +78,7 @@ public class Graphic extends JFrame {
                 30, 
                 new Vec2d(0, 400)) {
             @Override
-            public void updateLoc() {
+            public void update() {
                 loc = new Vec2d(loc.x + 1, loc.y - 1);
             }}
         );

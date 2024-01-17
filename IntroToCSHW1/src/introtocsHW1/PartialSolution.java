@@ -91,17 +91,16 @@ public class PartialSolution {
 
         final int diameter = 30, cieling = 400, rightWall = 600;
 
-        Vec2d loc = new Vec2d(40, 50), initVel = new Vec2d(2, 1.5);
+        Vec2d initLoc = new Vec2d(40, 50), initVel = new Vec2d(2, 1.5);
         
-
         new Graphic("Ball in Box", 
                 new MovingPicture("ball.jpg", 
                         0, diameter,
-                diameter, loc) {
+                diameter, initLoc) {
              private Vec2d vel = initVel;
                     
             @Override
-            public void updateLoc() {
+            public void update() {
                 Ball ball = ballInBox(
                         loc.x, 
                         loc.y, 
@@ -116,43 +115,6 @@ public class PartialSolution {
             
         });
         
-        
-//        new Graphic("Ball in a Box",
-//                ,
-//                -1,
-//                heightIndex,
-//                heightIndex,
-//                initX, //xLoc
-//                initY, //yLoc
-//                initXVel, //xVel
-//                initYVel, //yVel
-//                rightWall, //rightWall
-//                cieling, //Cieling
-//                diameter//diameter
-//        ) {
-//            @Override
-//            public double[] updatePos(double[] x) {
-//                Ball ballInBox = ballInBox(
-//                        x[0], //xLoc
-//                        x[1], //yLoc
-//                        x[2], //xVel
-//                        x[3], //yVel
-//                        rightWall, //rightWall
-//                        cieling, //cieling
-//                        diameter //diameter
-//                );
-//
-//                return new double[]{
-//                    ballInBox.loc.x,
-//                    ballInBox.loc.y,
-//                    ballInBox.vel.x,
-//                    ballInBox.vel.y,
-//                    rightWall,
-//                    cieling,
-//                    diameter
-//                };
-//            }
-//        };
     }
 
     /**

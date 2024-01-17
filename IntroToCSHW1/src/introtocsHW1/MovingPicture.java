@@ -171,6 +171,6 @@ public abstract class MovingPicture {
     /**
      * updates the location.
      */
-    public abstract void updateLoc();
+    public abstract void update();
 
 }
